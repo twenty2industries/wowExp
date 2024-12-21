@@ -1,6 +1,6 @@
 /* Allgemeine Stile für das gesamte Dokument */
 body {
-    margin: 100px;
+    margin: 0px;
     padding: 100px;
     display: flex;
     justify-content: center; /* Zentriert horizontal */
@@ -9,52 +9,64 @@ body {
     flex-direction: column;
 }
 
+/* Anordnung der Elemente in der Sektion: Untereinander */
 .section {
     display: flex;
-    align-items: center; /* Elemente innerhalb der Sektion ausrichten */
-    gap: 10px; /* Abstand zwischen Elementen in einer Reihe */
-    flex-wrap: wrap; /* Damit Eingabefelder in die nächste Zeile umgebrochen werden, falls nötig */
-    justify-content: center; /* Zentriert die Inhalte innerhalb der Sektion */
+    flex-direction: column;  /* Stellt sicher, dass die Elemente untereinander angezeigt werden */
+    align-items: center; /* Richtet die Elemente am linken Rand aus */
+    gap: 15px;               /* Abstand zwischen den Elementen */
     width: 100%;
 }
 
-/* Für Überschrift und Eingabefeld "xp per mob" eine eigene Zeile */
+/* Für das Container der "xp per mob" Eingabe, um es untereinander anzuzeigen */
 .xp-mob-container {
     display: flex;
-    align-items: center; /* Elemente innerhalb dieser Zeile ausrichten */
-    gap: 10px; /* Abstand zwischen der Überschrift und dem Input */
+    flex-direction: column; /* Stellt sicher, dass die Überschrift und das Input-Feld untereinander sind */
+    align-items: flex-start; /* Richte das Label und Eingabefeld nach links aus */
+    gap: 5px;               /* Abstand zwischen Überschrift und Input */
 }
 
+/* Allgemeiner Stil für alle h2-Überschriften */
 h2 {
-    margin-bottom: 24px; /* Abstand zwischen Überschrift und Input */
-    margin-right: 30px;
-    flex-shrink: 0; /* Überschrift soll nicht verkleinert werden */
+    margin: 0; /* Vermeidet unnötige Ränder */
+    font-size: 18px; /* Passt die Schriftgröße der Überschrift an */
 }
 
+/* Stil für die Eingabefelder */
 input {
-    padding: 8px; /* Optional: Innenabstand innerhalb des Eingabefelds */
+    padding: 8px;
+    width: 200px;  /* Breite der Eingabefelder */
+    height: 30px;  /* Höhe der Eingabefelder */
 }
 
+/* Button-Stil */
 button {
-    margin-left: 30px;
-    flex-shrink: 0; /* Button bleibt in seiner natürlichen Größe */
+    padding: 10px 20px;
+    background-color: #686868; /* Grüner Hintergrund */
+    color: white;               /* Weißer Text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;            /* Zeigt den Mauszeiger als Hand */
+}
+
+button:hover {
+    background-color: #5045a0;  /* Button-Farbe beim Hover */
 }
 
 /* Stil für das Logo */
 #coupLogo {
     margin-top: 0px;           /* Reduziert den oberen Abstand */
-    margin-bottom: 10px;     /* Optional: fügt einen kleinen Abstand nach unten hinzu */
+    margin-bottom: 0%   ;     /* Optional: fügt einen kleinen Abstand nach unten hinzu */
     display: block;          /* Macht das Bild zu einem Blockelement */
-    margin-left: -10px;      /* Verringert den linken Abstand (z.B. auf -10px) */
-    margin-right: -40px;         /* Kein zusätzlicher Abstand rechts */
+    margin-left: 0px;      /* Verringert den linken Abstand */
+    margin-right: 0px;         /* Kein zusätzlicher Abstand rechts */
 }
 
 /* Eingabefeld für Level */
 #lvlInput {
-    padding: 4px; /* Optional: Innenabstand innerhalb des Eingabefelds */
-    width: 30px;
-    height: 24px;
-    margin-bottom: 4px; /* Abstand zwischen Überschrift und Input */
+    padding: 4px; /* Innenabstand */
+    width: 30px;  /* Breite des Eingabefeldes */
+    height: 30px;
 }
 
 /* Container für das Ergebnis */
@@ -71,4 +83,5 @@ output {
     font-weight: bold;
     text-align: center;
     margin-top: 10px;
+
 }
