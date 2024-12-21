@@ -1,0 +1,74 @@
+/* Allgemeine Stile für das gesamte Dokument */
+body {
+    margin: 100px;
+    padding: 100px;
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center;    /* Zentriert vertikal */
+    height: 80vh;           /* Höhe des Viewports */
+    flex-direction: column;
+}
+
+.section {
+    display: flex;
+    align-items: center; /* Elemente innerhalb der Sektion ausrichten */
+    gap: 10px; /* Abstand zwischen Elementen in einer Reihe */
+    flex-wrap: wrap; /* Damit Eingabefelder in die nächste Zeile umgebrochen werden, falls nötig */
+    justify-content: center; /* Zentriert die Inhalte innerhalb der Sektion */
+    width: 100%;
+}
+
+/* Für Überschrift und Eingabefeld "xp per mob" eine eigene Zeile */
+.xp-mob-container {
+    display: flex;
+    align-items: center; /* Elemente innerhalb dieser Zeile ausrichten */
+    gap: 10px; /* Abstand zwischen der Überschrift und dem Input */
+}
+
+h2 {
+    margin-bottom: 24px; /* Abstand zwischen Überschrift und Input */
+    margin-right: 30px;
+    flex-shrink: 0; /* Überschrift soll nicht verkleinert werden */
+}
+
+input {
+    padding: 8px; /* Optional: Innenabstand innerhalb des Eingabefelds */
+}
+
+button {
+    margin-left: 30px;
+    flex-shrink: 0; /* Button bleibt in seiner natürlichen Größe */
+}
+
+/* Stil für das Logo */
+#coupLogo {
+    margin-top: 0px;           /* Reduziert den oberen Abstand */
+    margin-bottom: 10px;     /* Optional: fügt einen kleinen Abstand nach unten hinzu */
+    display: block;          /* Macht das Bild zu einem Blockelement */
+    margin-left: -10px;      /* Verringert den linken Abstand (z.B. auf -10px) */
+    margin-right: -40px;         /* Kein zusätzlicher Abstand rechts */
+}
+
+/* Eingabefeld für Level */
+#lvlInput {
+    padding: 4px; /* Optional: Innenabstand innerhalb des Eingabefelds */
+    width: 30px;
+    height: 24px;
+    margin-bottom: 4px; /* Abstand zwischen Überschrift und Input */
+}
+
+/* Container für das Ergebnis */
+#resultContainer {
+    display: flex;
+    justify-content: center; /* Zentriert das Ergebnis horizontal */
+    width: 100%;
+    margin-top: 20px; /* Abstand zum oberen Bereich */
+}
+
+/* Ergebnisanzeige */
+output {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
