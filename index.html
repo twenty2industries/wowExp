@@ -3,65 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WoW-Classic Experience Bar</title>   
-    <script src="umrechner.js"></script>
+    <title>WoW-Classic Experience Calculator</title>
     <link rel="stylesheet" href="icons.css">
     <link rel="stylesheet" href="alignment.css">
     <link rel="stylesheet" href="color.css">
 </head>
 <body>
-    <img src="coupLogo.GIF" alt="Logo" id="coupLogo" height="240" width="300">
-    <h1>WoW-Classic EXP CALCULATOR</h1>
+    <img src="coupLogo.GIF" alt="Logo" id="coupLogo" height="240" width="340">
+    <h1>WoW-Classic EXP Calculator</h1>
 
     <div class="section">
         <h2>Level:</h2>
-        <input type="number" placeholder="Aktuelles Level" id="lvlInput">
+        <input type="number" placeholder="" id="lvlInput" min="1" max="60">
 
-        <h2>EXP:</h2>
-        <input type="number" placeholder="Bereits erhaltene EXP" id="gainedExp">
+        <h2>Erhaltene Erfahrung (in %):</h2>
+        <input type="number" placeholder="" id="gainedPercent" min="0" max="100">
 
-        <h2>100%:</h2>
-        <input type="number" placeholder="100/100 EXP für das Level" id="hundertPercent">
-        
-        <!-- xp per mob in einer Zeile -->
-        <div class="xp-mob-container">
-            <h2>XP pro Mob:</h2>
-            <input type="number" placeholder="EXP pro Mob" id="perMob">
-        </div>
-        
-        <button>Berechnen</button>
+        <h2>XP pro Mob:</h2>
+        <input type="number" placeholder="" id="perMob">
+
+        <button id="calculateButton">Berechnen</button>
     </div>
 
-    <!-- Ergebnis unterhalb der Eingabefelder -->
     <div id="resultContainer">
-        <output>---</output>
+        <output>-</output>
     </div>
 
-    <script>
-        document.querySelector("button").addEventListener("click", calculateMonsters);
-
-        function calculateMonsters() {
-            // Eingabewerte holen
-            const level = parseInt(document.getElementById("lvlInput").value);
-            const gainedExp = parseInt(document.getElementById("gainedExp").value);
-            const totalExpForLevel = parseInt(document.getElementById("hundertPercent").value);
-            const expPerMob = parseInt(document.getElementById("perMob").value);
-
-            // Überprüfen, ob alle Eingabefelder korrekt ausgefüllt sind
-            if (isNaN(level) || isNaN(gainedExp) || isNaN(totalExpForLevel) || isNaN(expPerMob)) {
-                alert("Bitte fülle alle Felder korrekt aus.");
-                return;
-            }
-
-            // Berechne, wie viel Erfahrung noch fehlt, um das nächste Level zu erreichen
-            const expNeeded = totalExpForLevel - gainedExp;
-
-            // Berechne, wie viele Monster getötet werden müssen
-            const monstersToKill = Math.ceil(expNeeded / expPerMob);
-
-            // Ergebnis im Output-Feld anzeigen
-            document.querySelector("output").textContent = `Du musst ${monstersToKill} Monster töten, um auf Level ${level + 1} zu kommen.`;
-        }
-    </script>
+    <script src="umrechner.js"></script>
 </body>
 </html>
