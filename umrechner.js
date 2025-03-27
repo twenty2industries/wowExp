@@ -1,4 +1,3 @@
-
 const levelExperience = {
     1: 400,
     2: 900,
@@ -9,75 +8,81 @@ const levelExperience = {
     7: 4500,
     8: 5400,
     9: 6500,
-    10: 7800,
-    11: 9000,
-    12: 10400,
-    13: 11900,
-    14: 13500,
-    15: 15200,
-    16: 17000,
-    17: 18900,
-    18: 20900,
-    19: 23000,
-    20: 25200,
-    21: 27500,
-    22: 29900,
-    23: 32400,
-    24: 35000,
-    25: 37700,
-    26: 40500,
-    27: 43400,
-    28: 46400,
-    29: 49500,
-    30: 52700,
-    31: 56000,
-    32: 59400,
-    33: 62900,
-    34: 66500,
-    35: 70200,
-    36: 74000,
-    37: 77900,
-    38: 81900,
-    39: 86000,
-    40: 90200,
-    41: 94500,
-    42: 98900,
-    43: 103400,
-    44: 108000,
-    45: 112700,
-    46: 117500,
-    47: 122400,
-    48: 127400,
-    49: 132500,
-    50: 137700,
-    51: 143000,
-    52: 148400,
-    53: 153900,
+    10: 7600,
+    11: 8800,
+    12: 10100,
+    13: 11400,
+    14: 12900,
+    15: 14400,
+    16: 16000,
+    17: 17700,
+    18: 19700,
+    19: 21300,
+    20: 23200,
+    21: 25200,
+    22: 27300,
+    23: 29400,
+    24: 31700,
+    25: 34000,
+    26: 36400,
+    27: 38900,
+    28: 41400,
+    29: 44300,
+    30: 47400,
+    31: 50800,
+    32: 54500,
+    33: 58600,
+    34: 68200,
+    35: 67100,
+    36: 71600,
+    37: 76100,
+    38: 80800,
+    39: 85700,
+    40: 90700,
+    41: 95800,
+    42: 101000,
+    43: 106300,
+    44: 111800,
+    45: 117500,
+    46: 123200,
+    47: 129100,
+    48: 135100,
+    49: 141200,
+    50: 147500,
+    51: 153900,
+    52: 160400,
+    53: 167100,
     54: 173900,
-    55: 165200,
-    56: 171000,
-    57: 176900,
-    58: 182900,
-    59: 209800, // Aktualisierter Wert
+    55: 180800,
+    56: 187900,
+    57: 195000,
+    58: 202300,
+    59: 209800, // richtigen Werte; Quelle siehe Foto im Ordner 
     60: 0 // Level 60 benötigt keine weitere Erfahrung
 };
 
-
 document.getElementById("calculateButton").addEventListener("click", calculateExperience);
 
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        calculateExperience();
+    }
+});
+
 function calculateExperience() {
-    // Eingabewerte holen
+
     const level = parseInt(document.getElementById("lvlInput").value);
     const gainedPercent = parseFloat(document.getElementById("gainedPercent").value);
     const expPerMob = parseFloat(document.getElementById("perMob").value);
 
-    // Eingaben validieren
+
     if (isNaN(level) || level < 1 || level > 60 || isNaN(gainedPercent) || gainedPercent < 0 || gainedPercent > 100) {
-        alert("Bitte gib gültige Eingabewerte ein.");
+        alert("Bitte gebe ein Level zwischen 1-60 an.");
         return;
     }
 
-    // Gesamte benötigte EXP für das Level
+
     const totalExpForLevel = levelExperience[level];
 
     if (totalExpForLevel === undefined) {
@@ -103,4 +108,9 @@ function calculateExperience() {
         document.querySelector("output").textContent = 
             `Dir fehlen ${Math.ceil(expNeeded)} XP (${((expNeeded / totalExpForLevel) * 100).toFixed(2)}%), um auf Level ${level + 1} zu kommen.`;
     }
+
+    // Animation des Drachen starten
+    const dragon = document.getElementById("dragonGif");
+    dragon.style.visibility = "visible"; // Drachen sichtbar machen
+    dragon.style.animation = "flyAcross 12s linear"; // Animation anwenden
 }
