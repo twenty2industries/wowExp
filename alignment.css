@@ -3,10 +3,16 @@ body {
     margin: 0px;
     padding: 100px;
     display: flex;
-    justify-content: center; /* Zentriert horizontal */
-    align-items: center;    /* Zentriert vertikal */
-    height: 80vh;           /* Höhe des Viewports */
+    justify-content: center; 
+    align-items: center;   
+    height: 75vh;          
     flex-direction: column;
+    border-style: solid 20px;
+    border-width: 0;
+    border-color: 0;
+    border-radius:0%;
+    border: 5px solid #d60000; /* Schwarzer Rahmen mit 5px Breite */
+    box-sizing: content-box; /* Sorgt dafür, dass der Rahmen innerhalb des Elements bleibt */
 }
 
 /* Anordnung der Elemente in der Sektion: Untereinander */
@@ -16,6 +22,8 @@ body {
     align-items: center; /* Richtet die Elemente am linken Rand aus */
     gap: 15px;               /* Abstand zwischen den Elementen */
     width: 100%;
+    border-style: 0;
+    border-color: 0;
 }
 
 /* Für das Container der "xp per mob" Eingabe, um es untereinander anzuzeigen */
@@ -37,12 +45,14 @@ input {
     padding: 8px;
     width: 200px;  /* Breite der Eingabefelder */
     height: 30px;  /* Höhe der Eingabefelder */
+    background-color: #eeeeee;
+   
 }
 
 /* Button-Stil */
 button {
     padding: 10px 20px;
-    background-color: #686868; /* Grüner Hintergrund */
+    background-color: #505050; /* Grüner Hintergrund */
     color: white;               /* Weißer Text */
     border: none;
     border-radius: 5px;
@@ -54,19 +64,20 @@ button:hover {
 }
 
 /* Stil für das Logo */
-#coupLogo {
+#resultKing {
     margin-top: 0px;           /* Reduziert den oberen Abstand */
     margin-bottom: 0%   ;     /* Optional: fügt einen kleinen Abstand nach unten hinzu */
     display: block;          /* Macht das Bild zu einem Blockelement */
-    margin-left: 0px;      /* Verringert den linken Abstand */
+    margin-left: 30px;      /* Verringert den linken Abstand */
     margin-right: 0px;         /* Kein zusätzlicher Abstand rechts */
 }
 
 /* Eingabefeld für Level */
 #lvlInput {
     padding: 4px; /* Innenabstand */
-    width: 30px;  /* Breite des Eingabefeldes */
+    width: 45px;  /* Breite des Eingabefeldes */
     height: 30px;
+    background-color: #eeeeee;
 }
 
 /* Container für das Ergebnis */
@@ -83,5 +94,39 @@ output {
     font-weight: bold;
     text-align: center;
     margin-top: 10px;
+}
 
+#perMob {
+    background-color: #eeeeee;
+}
+
+#dragonGif {
+
+    left: -20%; /* Startpunkt der Animation (außerhalb des Bildschirms) */
+    width: 150px; /* Größe des Drachen */
+    visibility: hidden; /* Unsichtbar bis die Animation startet */
+    transform: rotate(-65deg)
+}
+
+#dragonGif {
+    position: absolute; /* Erforderlich für Animation mit "left" */
+    bottom: 20%; /* Positioniere den Drachen vertikal */
+    left: -20%; /* Startpunkt außerhalb des Bildschirms */
+    width: 90px; /* Größe des Drachen */
+    visibility: hidden; /* Unsichtbar bis die Animation startet */
+    transform: rotate(-10deg);
+}
+
+@keyframes flyAcross {
+    from {
+        left: -20%; /* Startpunkt der Animation */
+    }
+    to {
+        left: 120%; /* Endpunkt der Animation */
+    }
+}
+
+.animated-dragon {
+    visibility: visible; /* Zeige das GIF an */
+    animation: flyAcross 12s linear; /* Animation mit Dauer von 4 Sekunden */
 }
